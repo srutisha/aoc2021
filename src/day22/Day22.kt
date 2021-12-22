@@ -14,8 +14,7 @@ object Day22 {
         val tree: RegionBSPTree3D = RegionBSPTree3D.empty()
 
         fun addObj(s: String) {
-            val coords = Regex("[-\\d]+").findAll(s).map { it.value.toInt().toDouble() }.toList()
-            println(coords)
+            val coords = Regex("[-\\d]+").findAll(s).map { it.value.toDouble() }.toList()
             val cuboid = Parallelepiped.axisAligned(
                 Vector3D.of(coords[0], coords[2], coords[4]),
                 Vector3D.of(coords[1]+1, coords[3]+1, coords[5]+1), Precision.doubleEquivalenceOfEpsilon(1e-6))
